@@ -1,0 +1,68 @@
+﻿@model IEnumerable<WardrobeApplication.Models.Accessory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h1 id="index-header">Accessories Index</h1>
+ 
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessoryName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessoryPhoto)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessoryType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessoryColor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessorySeason)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccessoryOccasion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessoryName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessoryPhoto)
+            <!-- This code adds clipart image that represents each Accessory in display table-->
+            <img src="~/Content/Images/Accessories icon.jpg" />
+           
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessoryType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessoryColor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessorySeason)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccessoryOccasion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AccessoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.AccessoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AccessoryID })
+        </td>
+    </tr>
+}
+
+</table>
